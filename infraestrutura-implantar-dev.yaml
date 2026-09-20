@@ -4,7 +4,7 @@
 template-file-path: infraestrutura-template.yaml
 
 parameters:
-  ProjectName: lnv-demo
+  ProjectName: cloudformation-demo
   Environment: dev
   VpcCidr: 10.10.0.0/16
   PublicSubnetCidr: 10.10.1.0/24
@@ -13,8 +13,8 @@ parameters:
   EnableDnsHostnames: 'true'
 
 tags:
-  Project: lnv-demo
+  Project: cloudformation-demo
   Environment: dev
   Owner: leandro
   ManagedBy: CloudFormation-GitSync
-  CostCenter: treinamento
+  CostCenter: tecnologia
