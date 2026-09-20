@@ -155,6 +155,37 @@ Resources:
       SubnetId: !Ref PrivateSubnet
       RouteTableId: !Ref PrivateRouteTable
 
+  CloudFormationSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: cloudformation-sg
+      GroupDescription: Security group para CloudFormation
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+          Description: Allow HTTP
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+          Description: Allow HTTPS
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+          Description: Allow all outbound traffic
+      Tags:
+        - Key: Name
+          Value: !Sub '${ProjectName}-${Environment}-cloudformation-sg'
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: Project
+          Value: !Ref ProjectName
+        - Key: ManagedBy
+          Value: CloudFormation-GitSync
+
 Outputs:
   VpcId:
     Description: ID da VPC criada.
@@ -171,3 +202,11 @@ Outputs:
   Environment:
     Description: Ambiente implantado.
     Value: !Ref Environment
+
+  SecurityGroupId:
+    Description: ID do Security Group criado.
+    Value: !Ref CloudFormationSecurityGroup
+
+  SecurityGroupName:
+    Description: Nome do Security Group criado.
+    Value: !GetAtt CloudFormationSecurityGroup.GroupName
