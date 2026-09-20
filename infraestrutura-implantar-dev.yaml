@@ -4,7 +4,7 @@
 template-file-path: infraestrutura-template.yaml
 
 parameters:
-  ProjectName: cloudformation-demo
+  ProjectName: cloudformation
   Environment: dev
   VpcCidr: 10.10.0.0/16
   PublicSubnetCidr: 10.10.1.0/24
@@ -13,7 +13,7 @@ parameters:
   EnableDnsHostnames: 'true'
 
 tags:
-  Project: cloudformation-demo
+  Project: cloudformation
   Environment: dev
   Owner: leandro
   ManagedBy: CloudFormation-GitSync
