@@ -1,0 +1,20 @@
+# Arquivo de implantacao consumido pelo AWS CloudFormation Git Sync.
+# Para implantar outro ambiente, altere apenas os valores abaixo.
+
+template-file-path: infraestrutura-template.yaml
+
+parameters:
+  ProjectName: lnv-demo
+  Environment: dev
+  VpcCidr: 10.10.0.0/16
+  PublicSubnetCidr: 10.10.1.0/24
+  PrivateSubnetCidr: 10.10.2.0/24
+  AvailabilityZone: us-west-2a
+  EnableDnsHostnames: 'true'
+
+tags:
+  Project: lnv-demo
+  Environment: dev
+  Owner: leandro
+  ManagedBy: CloudFormation-GitSync
+  CostCenter: treinamento
