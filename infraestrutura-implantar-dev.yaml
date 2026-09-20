@@ -15,6 +15,6 @@ parameters:
 tags:
   Project: cloudformation
   Environment: dev
-  Owner: leandro.nideck
+  Owner: leandro.vieira
   ManagedBy: CloudFormation-GitSync
   CostCenter: tecnologia
