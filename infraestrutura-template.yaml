@@ -158,7 +158,7 @@ Resources:
   CloudFormationSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: !Sub 'sg-${ProjectName}-${Environment}'
+      GroupName: !Sub '${ProjectName}-${Environment}-sg'
       GroupDescription: Security group para CloudFormation
       VpcId: !Ref VPC
       SecurityGroupIngress:
@@ -178,7 +178,7 @@ Resources:
           Description: Allow all outbound traffic
       Tags:
         - Key: Name
-          Value: !Sub 'sg-${ProjectName}-${Environment}'
+          Value: !Sub '${ProjectName}-${Environment}-sg'
         - Key: Environment
           Value: !Ref Environment
         - Key: Project
